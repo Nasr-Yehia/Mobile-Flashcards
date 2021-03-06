@@ -2,6 +2,7 @@
   "name": "mobile-flashcards",
   "displayName": "mobile-flashcards",
   "expo": {
+    "Author": "Nasr Yehia",
     "name": "mobile-flashcards",
     "slug": "mobile-flashcards",
     "version": "1.0.0",
