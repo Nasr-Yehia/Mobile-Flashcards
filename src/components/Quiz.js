@@ -57,7 +57,7 @@ class Quiz extends Component {
 
   jumpToResults = () => {
     clearLocalNotification().then(setLocalNotification());
-    this.props.navigation.navigate("DeckResults", {
+    this.props.navigation.navigate("QuizResults", {
       deckName: this.props.deckName,
     });
   };

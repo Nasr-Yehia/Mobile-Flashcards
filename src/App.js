@@ -28,7 +28,7 @@ import DeckDetail from "./components/DeckDetail";
 import AddCard from "./components/AddCard";
 import DeleteDeck from "./components/DeleteDeck";
 import Quiz from "./components/Quiz";
-import DeckResults from "./components/QuizResults";
+import QuizResults from "./components/QuizResults";
 import { setLocalNotification } from "./utils/notification";
 
 function CustomStatusBar({ backgroundColor, ...props }) {
@@ -131,8 +131,8 @@ const AppStack = createStackNavigator({
 });
 
 const ResultStack = createStackNavigator({
-  DeckResults: {
-    screen: DeckResults,
+  QuizResults: {
+    screen: QuizResults,
     navigationOptions: {
       headerTintColor: bodyColor3,
       headerStyle: {

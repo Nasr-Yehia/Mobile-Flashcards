@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { connect } from "react-redux";
 import {
@@ -7,9 +7,22 @@ import {
   bodyColor3,
   baseColorLight,
 } from "../utils/styles";
+import { NavigationActions, StackActions } from "react-navigation";
 
-export function DeckResults(props) {
-  const { deckName, results, questionCount } = props;
+export function QuizResults(props) {
+  const { deckName, results, questionCount, navigation } = props;
+
+  function restartQuiz() {
+    const currentNavigationKey = navigation.state.key;
+    const replaceAction = StackActions.replace({
+      action: NavigationActions.navigate({ routeName: "QuizResults" }),
+      key: currentNavigationKey,
+      params: { deckName },
+      routeName: "QuizResults",
+    });
+    navigation.dispatch(replaceAction);
+  }
+
   return (
     <View style={[styles.container, { justifyContent: "space-around" }]}>
       <Text style={[styles.keyText, { marginHorizontal: 50 }]}>
@@ -45,7 +58,7 @@ export function DeckResults(props) {
       </Text>
       <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("Quiz", { deckName })}
+          onPress={() => restartQuiz()}
           style={[
             styles.button1,
             styles.button2,
@@ -93,4 +106,4 @@ function mapStateToProps({ data }, { navigation }) {
   };
 }
 
-export default connect(mapStateToProps)(DeckResults);
+export default connect(mapStateToProps)(QuizResults);

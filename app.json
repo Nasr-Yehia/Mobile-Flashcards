@@ -1,8 +1,8 @@
 {
   "name": "mobile-flashcards",
   "displayName": "mobile-flashcards",
+  "Author": "Nasr Yehia",
   "expo": {
-    "Author": "Nasr Yehia",
     "name": "mobile-flashcards",
     "slug": "mobile-flashcards",
     "version": "1.0.0",
