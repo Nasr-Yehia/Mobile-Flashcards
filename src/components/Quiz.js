@@ -134,7 +134,7 @@ class Quiz extends Component {
                   },
                 ]}
               >
-                <Text style={{ color: baseColorLight }}>Missed!</Text>
+                <Text style={{ color: baseColorLight }}>InCorrect!</Text>
               </TouchableOpacity>
             </View>
           </View>

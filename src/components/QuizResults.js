@@ -7,22 +7,9 @@ import {
   bodyColor3,
   baseColorLight,
 } from "../utils/styles";
-import { NavigationActions, StackActions } from "react-navigation";
 
 export function QuizResults(props) {
-  const { deckName, results, questionCount, navigation } = props;
-
-  function restartQuiz() {
-    const currentNavigationKey = navigation.state.key;
-    const replaceAction = StackActions.replace({
-      action: NavigationActions.navigate({ routeName: "QuizResults" }),
-      key: currentNavigationKey,
-      params: { deckName },
-      routeName: "QuizResults",
-    });
-    navigation.dispatch(replaceAction);
-  }
-
+  const { deckName, results, questionCount } = props;
   return (
     <View style={[styles.container, { justifyContent: "space-around" }]}>
       <Text style={[styles.keyText, { marginHorizontal: 50 }]}>
@@ -58,7 +45,7 @@ export function QuizResults(props) {
       </Text>
       <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         <TouchableOpacity
-          onPress={() => restartQuiz()}
+          onPress={() => props.navigation.navigate("DeckDetail", { deckName })}
           style={[
             styles.button1,
             styles.button2,
@@ -71,11 +58,11 @@ export function QuizResults(props) {
           ]}
         >
           <Text style={[{ color: baseColorLight, fontWeight: "bold" }]}>
-            Restart Quiz
+            Restart
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("DeckDetail", { deckName })}
+          onPress={() => props.navigation.navigate("DeckList", { deckName })}
           style={[
             styles.button1,
             styles.button2,
@@ -87,7 +74,7 @@ export function QuizResults(props) {
           ]}
         >
           <Text style={[{ color: baseColorLight, fontWeight: "bold" }]}>
-            Back to Home
+            Back to Decks
           </Text>
         </TouchableOpacity>
       </View>
