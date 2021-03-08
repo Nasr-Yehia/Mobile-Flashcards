@@ -60,7 +60,9 @@ export default function reducer(state = { id: "", data: [] }, action) {
           ...state.data,
           [action.deckName]: {
             ...state.data[action.deckName],
-            results: state.data[action.deckName].results + 1,
+            results: state.data[action.deckName].results
+              ? ++state.data[action.deckName].results
+              : 1,
           },
         },
       };
