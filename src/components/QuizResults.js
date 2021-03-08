@@ -45,7 +45,7 @@ export function QuizResults(props) {
       </Text>
       <View style={{ flexDirection: "row", justifyContent: "space-around" }}>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("DeckDetail", { deckName })}
+          onPress={() => props.navigation.navigate("Quiz", { deckName })}
           style={[
             styles.button1,
             styles.button2,
@@ -58,11 +58,11 @@ export function QuizResults(props) {
           ]}
         >
           <Text style={[{ color: baseColorLight, fontWeight: "bold" }]}>
-            Restart
+            Restart Quiz
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => props.navigation.navigate("DeckList", { deckName })}
+          onPress={() => props.navigation.navigate("DeckDetail", { deckName })}
           style={[
             styles.button1,
             styles.button2,
@@ -74,7 +74,7 @@ export function QuizResults(props) {
           ]}
         >
           <Text style={[{ color: baseColorLight, fontWeight: "bold" }]}>
-            Back to Decks
+            Back to Home
           </Text>
         </TouchableOpacity>
       </View>
